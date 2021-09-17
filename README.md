@@ -70,8 +70,8 @@ DELETE /blogPosts /123 => delete the blogpost with the given id
 
 Frontend
 
-Post article from new article form
-Fetch & List your articles at home page
+	Post article from new article form
+	Fetch & List your articles at home page
 
 
 ## Day 3
@@ -93,5 +93,5 @@ POST /blogPosts/:id/comments, add a new comment to the specific post
 
 Frontend
 
-The user should be able to upload a picture as an avatar
-The user should be able to upload a picture as a blog post cover
+	The user should be able to upload a picture as an avatar
+	The user should be able to upload a picture as a blog post cover
