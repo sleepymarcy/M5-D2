@@ -1,1 +1,66 @@
-[]
+[
+    {
+        "id": "nnmcboktu5of32",
+        "title": "A whole new world",
+        "category": "Lifestyle",
+        "content": "A new fantastic point of view, no one to tell us, 'No' or where to go or say we're only dreaming. A whole new world - A dazzling place I never knew but when I'm way up here, it's crystal clear that now I'm in a whole new world with you.",
+        "cover": "https://i.ytimg.com/vi/W4atCMF9mBY/maxresdefault.jpg",
+        "author.name": "Marcy",
+        "author.avatar": "https://hypixel.net/attachments/0d29efb6a69e4d8591d23f5d23c3cb3a-jpg.1874262/",
+        "readTime.value": "5",
+        "readTime.unit": "minutes",
+        "createdAt": "2021-09-21T14:11:32.317Z",
+        "updatedAt": "2021-09-21T14:11:32.317Z"
+    },
+    {
+        "id": "nnmcboktu85yy4",
+        "category": "Category2",
+        "title": "Hello World",
+        "cover": "https://coursereport-production.imgix.net/uploads/school/logo/1045/original/Strive_-_logosquareblack.png?w=200&h=200&dpr=1&q=75",
+        "readTime": {
+            "value": 5,
+            "unit": "minute"
+        },
+        "author": {
+            "name": "Marcy Sowinska",
+            "avatar": "https://hypixel.net/attachments/0d29efb6a69e4d8591d23f5d23c3cb3a-jpg.1874262/"
+        },
+        "content": "<p>I dispense wisdom from my mighty wisdom tooth</p>",
+        "createdAt": "2021-09-21T15:21:10.444Z",
+        "updatedAt": "2021-09-21T15:21:10.444Z"
+    },
+    {
+        "id": "nnmjdoktu8696a",
+        "category": "Category2",
+        "title": "Hello World",
+        "cover": "https://coursereport-production.imgix.net/uploads/school/logo/1045/original/Strive_-_logosquareblack.png?w=200&h=200&dpr=1&q=75",
+        "readTime": {
+            "value": 5,
+            "unit": "minute"
+        },
+        "author": {
+            "name": "Marcy Sowinska",
+            "avatar": "https://hypixel.net/attachments/0d29efb6a69e4d8591d23f5d23c3cb3a-jpg.1874262/"
+        },
+        "content": "<p>I dispense wisdom from my mighty wisdom tooth</p><p><br></p>",
+        "createdAt": "2021-09-21T15:21:23.697Z",
+        "updatedAt": "2021-09-21T15:21:23.697Z"
+    },
+    {
+        "id": "nnmjnwktu86ab9",
+        "category": "Category2",
+        "title": "Hello World",
+        "cover": "https://coursereport-production.imgix.net/uploads/school/logo/1045/original/Strive_-_logosquareblack.png?w=200&h=200&dpr=1&q=75",
+        "readTime": {
+            "value": 5,
+            "unit": "minute"
+        },
+        "author": {
+            "name": "Marcy Sowinska",
+            "avatar": "https://hypixel.net/attachments/0d29efb6a69e4d8591d23f5d23c3cb3a-jpg.1874262/"
+        },
+        "content": "<p>I dispense wisdom from my mighty wisdom tooth</p><p><br></p>",
+        "createdAt": "2021-09-21T15:21:25.172Z",
+        "updatedAt": "2021-09-21T15:21:25.172Z"
+    }
+]
