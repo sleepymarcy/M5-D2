@@ -10,14 +10,14 @@ import {
     checkValidationResult,
 } from "./validation.js"
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+const fname = fileURLToPath(import.meta.url)
+const dname = dirname(fname)
 
-const blogsFilePath = path.join(__dirname, "blogs.json")
+const blogsFilePath = path.join(dname, "blogs.json")
 
 const router = express.Router()
 
-// get all blogs
+// GET blogs
 router.get("/", async (req, res, next) => {
     try {
         const fileAsBuffer = fs.readFileSync(blogsFilePath)
@@ -25,7 +25,7 @@ router.get("/", async (req, res, next) => {
         const fileAsJSON = JSON.parse(fileAsString)
         res.send(fileAsJSON)
     } catch (error) {
-        res.send(500).send({ message: error.message })
+        res.status(500).send({ message: error.message })
     }
 });
 
@@ -44,12 +44,12 @@ router.get(
             )
             res.send(filtered)
         } catch (error) {
-            res.send(500).send({ message: error.message })
+            res.status(500).send({ message: error.message })
         }
     }
 );
 
-// create  blog
+// POST (create) blog
 router.post(
     "/",
     checkBlogPostSchema,
@@ -73,12 +73,12 @@ router.post(
 
             res.send(blog)
         } catch (error) {
-            res.send(500).send({ message: error.message })
+            res.status(500).send({ message: error.message })
         }
     }
 );
 
-// get single blogs
+// GET blog
 router.get("/:id", async (req, res, next) => {
     try {
         const fileAsBuffer = fs.readFileSync(blogsFilePath)
@@ -93,11 +93,11 @@ router.get("/:id", async (req, res, next) => {
         }
         res.send(blog)
     } catch (error) {
-        res.send(500).send({ message: error.message })
+        res.status(500).send({ message: error.message })
     }
 })
 
-// delete  blog
+// DELETE blog
 router.delete("/:id", async (req, res, next) => {
     try {
         const fileAsBuffer = fs.readFileSync(blogsFilePath)
@@ -116,11 +116,11 @@ router.delete("/:id", async (req, res, next) => {
         fs.writeFileSync(blogsFilePath, JSON.stringify(fileAsJSONArray))
         res.status(204).send()
     } catch (error) {
-        res.send(500).send({ message: error.message })
+        res.status(500).send({ message: error.message })
     }
 })
 
-//  update blog
+// PUT (update) blog
 router.put("/:id", async (req, res, next) => {
     try {
         const fileAsBuffer = fs.readFileSync(blogsFilePath)
@@ -147,7 +147,7 @@ router.put("/:id", async (req, res, next) => {
         fs.writeFileSync(blogsFilePath, JSON.stringify(fileAsJSONArray))
         res.send(changedblog)
     } catch (error) {
-        res.send(500).send({ message: error.message })
+        res.status(500).send({ message: error.message })
     }
 })
 

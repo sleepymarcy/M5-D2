@@ -3,10 +3,10 @@ import { fileURLToPath } from "url"
 import fs from "fs";
 import multer from "multer"
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+const fname = fileURLToPath(import.meta.url)
+const dname = dirname(fname)
 
-const publicDirectory = path.join(__dirname, "../../../public")
+const publicDirectory = path.join(dname, "../../../public")
 
 export const parseFile = multer()
 

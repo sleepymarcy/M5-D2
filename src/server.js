@@ -17,8 +17,9 @@ const PORT = 3001
 server.use(cors())
 server.use(express.json())
 server.use(express.static(publicDirectory))
+
 server.use('/authors', authorsRouter)
-server.use("/blogs", blogsRouter)
+server.use('/blogs', blogsRouter)
 
 server.use(notFound)
 server.use(forbidden)

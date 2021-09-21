@@ -4,14 +4,14 @@ import uniqid from 'uniqid'
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+const fname = fileURLToPath(import.meta.url)
+const dname = dirname(fname)
 
-const authorsFilePath = path.join(__dirname, 'authors.json')
+const authorsFilePath = path.join(dname, 'authors.json')
 
 const router = express.Router()
 
-// get all authors
+// GET authors
 router.get('/', async (req, res, next) => {
     try {
         const fileAsBuffer = fs.readFileSync(authorsFilePath)
@@ -19,11 +19,11 @@ router.get('/', async (req, res, next) => {
         const fileAsJSON = JSON.parse(fileAsString)
         res.send(fileAsJSON)
     } catch (error) {
-        res.send(500).send({ message: error.message })
+        res.status(500).send({ message: error.message })
     }
 })
 
-// create author
+// POST (create) author
 router.post('/', async (req, res, next) => {
     try {
         const { name, surname, email, dateOfBirth } = req.body
@@ -48,11 +48,11 @@ router.post('/', async (req, res, next) => {
 
         res.send(author);
     } catch (error) {
-        res.send(500).send({ message: error.message })
+        res.status(500).send({ message: error.message })
     }
 })
 
-// get single author
+// GET author
 router.get("/:id", async (req, res, next) => {
     try {
         const fileAsBuffer = fs.readFileSync(authorsFilePath)
@@ -69,11 +69,11 @@ router.get("/:id", async (req, res, next) => {
         }
         res.send(author)
     } catch (error) {
-        res.send(500).send({ message: error.message })
+        res.status(500).send({ message: error.message })
     }
 })
 
-// delete author
+// DELETE author
 router.delete("/:id", async (req, res, next) => {
     try {
         const fileAsBuffer = fs.readFileSync(authorsFilePath)
@@ -94,11 +94,11 @@ router.delete("/:id", async (req, res, next) => {
         fs.writeFileSync(authorsFilePath, JSON.stringify(fileAsJSONArray))
         res.status(204).send()
     } catch (error) {
-        res.send(500).send({ message: error.message })
+        res.status(500).send({ message: error.message })
     }
 })
 
-//  update author
+// PUT (update) author
 router.put("/:id", async (req, res, next) => {
     try {
         const fileAsBuffer = fs.readFileSync(authorsFilePath)
@@ -127,7 +127,7 @@ router.put("/:id", async (req, res, next) => {
         fs.writeFileSync(authorsFilePath, JSON.stringify(fileAsJSONArray))
         res.send(changedAuthor)
     } catch (error) {
-        res.send(500).send({ message: error.message })
+        res.status(500).send({ message: error.message })
     }
 })
 
