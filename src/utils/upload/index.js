@@ -1,26 +1,25 @@
-import path, { dirname, extname } from "path"
-import { fileURLToPath } from "url"
+import path, { dirname, extname } from "path";
+import { fileURLToPath } from "url";
 import fs from "fs";
-import multer from "multer"
+import multer from "multer";
+import { v2 as cloudinary } from "cloudinary";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
 
-const fname = fileURLToPath(import.meta.url)
-const dname = dirname(fname)
+const { CLOUDINARY_NAME, CLOUDINARY_KEY, CLOUDINARY_SECRET } = process.env;
 
-const publicDirectory = path.join(dname, "../../../public")
+cloudinary.config({
+  cloud_name: CLOUDINARY_NAME,
+  api_key: CLOUDINARY_KEY,
+  api_secret: CLOUDINARY_SECRET,
+})
 
-export const parseFile = multer()
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+})
 
-export const uploadFile = (req, res, next) => {
-  try {
-    const { originalname, buffer } = req.file
-    const extension = extname(originalname)
-    const fileName = `${req.params.id}${extension}`
-    const pathToFile = path.join(publicDirectory, fileName)
-    fs.writeFileSync(pathToFile, buffer)
-    const link = `http://localhost:3001/${fileName}`
-    req.file = link
-    next()
-  } catch (error) {
-    next(error)
-  }
-}
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+const publicDirectory = path.join(__dirname, "../../../public")
+
+export const parseFile = multer({ storage })
